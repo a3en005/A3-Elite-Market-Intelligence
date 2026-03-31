@@ -1,0 +1,39 @@
+# A3 Elite Intelligence - Requirements
+# This file lists the core dependencies and environment variables for local setup.
+# To install all dependencies, run: npm install
+
+# Core Dependencies
+react
+react-dom
+vite
+express
+gsap
+motion
+lucide-react
+recharts
+@google/genai
+@splinetool/react-spline
+three
+@react-three/fiber
+@react-three/drei
+ws
+dotenv
+clsx
+tailwind-merge
+date-fns
+react-dropzone
+react-markdown
+
+# Dev Dependencies
+typescript
+tsx
+tailwindcss
+@tailwindcss/vite
+@types/node
+@types/express
+@types/ws
+
+# Required Environment Variables (see .env.example)
+# GEMINI_API_KEY
+# TELEGRAM_BOT_TOKEN
+# TELEGRAM_CHAT_ID

@@ -1,0 +1,8 @@
+{
+  "name": "A3-Elite Market Intelligence Platform",
+  "description": "Professional institutional-grade trading analysis platform with Smart Money Concepts, AI chart analysis, and real-time market screening.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
