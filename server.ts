@@ -58,7 +58,7 @@ async function startServer() {
     const baseUrl = isLive ? 'https://api-fxtrade.oanda.com' : 'https://api-fxpractice.oanda.com';
 
     if (!apiKey || !accountId) {
-      console.warn('OANDA API Key or Account ID missing, falling back to Frankfurter');
+      console.warn('OANDA API Key or Account ID missing, falling back to ExchangeRate-API');
     }
 
     const controller = new AbortController();
@@ -130,28 +130,6 @@ async function startServer() {
         }
       }
 
-      // Fallback to Frankfurter
-      console.log('Fetching Forex prices from Frankfurter...');
-      const response = await fetch('https://api.frankfurter.app/latest?from=USD', {
-        signal: controller.signal,
-        headers: {
-          'User-Agent': 'A3-Elite-Terminal/1.0',
-          'Accept': 'application/json'
-        }
-      });
-      
-      clearTimeout(timeoutId);
-
-      if (!response.ok) throw new Error(`Forex API responded with ${response.status}`);
-      
-      const data = await response.json();
-      cache.fx.data = data;
-      cache.fx.timestamp = now;
-      res.json(data);
-    } catch (error) {
-      clearTimeout(timeoutId);
-      console.error('Proxy Forex Error:', error);
-      
       // Fallback to ExchangeRate-API
       try {
         console.log('Attempting fallback Forex API (ExchangeRate-API)...');
@@ -186,6 +164,9 @@ async function startServer() {
         }
         res.status(500).json({ error: 'Failed to fetch Forex prices' });
       }
+    } catch (error) {
+      console.error('Proxy Forex Error:', error);
+      res.status(500).json({ error: 'Internal server error fetching Forex' });
     }
   });
 
@@ -284,22 +265,22 @@ async function startServer() {
           const binanceData = await response.json();
           const mappedData: any = {};
           const symbolMap: any = {
-            'BTCUSDT': 'bitcoin',
-            'ETHUSDT': 'ethereum',
-            'BNBUSDT': 'binancecoin',
-            'XRPUSDT': 'ripple',
-            'SOLUSDT': 'solana',
-            'ADAUSDT': 'cardano',
-            'DOTUSDT': 'polkadot',
-            'MATICUSDT': 'matic-network',
-            'LINKUSDT': 'chainlink',
-            'AVAXUSDT': 'avalanche-2'
+            'BTCUSDT': 'BTCUSD',
+            'ETHUSDT': 'ETHUSD',
+            'BNBUSDT': 'BNBUSD',
+            'XRPUSDT': 'XRPUSD',
+            'SOLUSDT': 'SOLUSD',
+            'ADAUSDT': 'ADAUSD',
+            'DOTUSDT': 'DOTUSD',
+            'MATICUSDT': 'MATICUSD',
+            'LINKUSDT': 'LINKUSD',
+            'AVAXUSDT': 'AVAXUSD'
           };
 
           binanceData.forEach((item: any) => {
-            const cgId = symbolMap[item.symbol];
-            if (cgId) {
-              mappedData[cgId] = {
+            const sym = symbolMap[item.symbol];
+            if (sym) {
+              mappedData[sym] = {
                 usd: parseFloat(item.lastPrice),
                 usd_24h_change: parseFloat(item.priceChangePercent)
               };
@@ -313,27 +294,6 @@ async function startServer() {
         }
       }
 
-      console.log('Fetching Crypto prices from CoinGecko...');
-      const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple,solana,cardano,polkadot,matic-network,chainlink,avalanche-2&vs_currencies=usd&include_24hr_change=true', {
-        signal: controller.signal,
-        headers: { 
-          'Accept': 'application/json',
-          'User-Agent': 'A3-Elite-Terminal/1.0'
-        }
-      });
-      
-      clearTimeout(timeoutId);
-
-      if (!response.ok) throw new Error(`Crypto API responded with ${response.status}`);
-      
-      const data = await response.json();
-      cache.crypto.data = data;
-      cache.crypto.timestamp = now;
-      res.json(data);
-    } catch (error) {
-      clearTimeout(timeoutId);
-      console.error('Proxy Crypto Error:', error);
-
       // Fallback to Binance Public API (No API key required for basic ticker)
       try {
         console.log('Attempting fallback Crypto API (Binance Public)...');
@@ -346,22 +306,22 @@ async function startServer() {
         
         const mappedData: any = {};
         const symbolMap: any = {
-          'BTCUSDT': 'bitcoin',
-          'ETHUSDT': 'ethereum',
-          'BNBUSDT': 'binancecoin',
-          'XRPUSDT': 'ripple',
-          'SOLUSDT': 'solana',
-          'ADAUSDT': 'cardano',
-          'DOTUSDT': 'polkadot',
-          'MATICUSDT': 'matic-network',
-          'LINKUSDT': 'chainlink',
-          'AVAXUSDT': 'avalanche-2'
+          'BTCUSDT': 'BTCUSD',
+          'ETHUSDT': 'ETHUSD',
+          'BNBUSDT': 'BNBUSD',
+          'XRPUSDT': 'XRPUSD',
+          'SOLUSDT': 'SOLUSD',
+          'ADAUSDT': 'ADAUSD',
+          'DOTUSDT': 'DOTUSD',
+          'MATICUSDT': 'MATICUSD',
+          'LINKUSDT': 'LINKUSD',
+          'AVAXUSDT': 'AVAXUSD'
         };
 
         binanceData.forEach((item: any) => {
-          const cgId = symbolMap[item.symbol];
-          if (cgId) {
-            mappedData[cgId] = {
+          const sym = symbolMap[item.symbol];
+          if (sym) {
+            mappedData[sym] = {
               usd: parseFloat(item.lastPrice),
               usd_24h_change: parseFloat(item.priceChangePercent)
             };
@@ -379,6 +339,9 @@ async function startServer() {
         }
         res.status(500).json({ error: 'Failed to fetch Crypto prices' });
       }
+    } catch (error) {
+      console.error('Proxy Crypto Error:', error);
+      res.status(500).json({ error: 'Internal server error fetching Crypto' });
     }
   });
 
@@ -479,26 +442,26 @@ async function startServer() {
             const binanceData = await response.json();
             const mappedData: any = {};
             const symbolMap: any = {
-              'BTCUSDT': { id: 'bitcoin', sym: 'BTCUSD' },
-              'ETHUSDT': { id: 'ethereum', sym: 'ETHUSD' },
-              'BNBUSDT': { id: 'binancecoin', sym: 'BNBUSD' },
-              'XRPUSDT': { id: 'ripple', sym: 'XRPUSD' },
-              'SOLUSDT': { id: 'solana', sym: 'SOLUSD' },
-              'ADAUSDT': { id: 'cardano', sym: 'ADAUSD' },
-              'DOTUSDT': { id: 'polkadot', sym: 'DOTUSD' },
-              'MATICUSDT': { id: 'matic-network', sym: 'MATICUSD' },
-              'LINKUSDT': { id: 'chainlink', sym: 'LINKUSD' },
-              'AVAXUSDT': { id: 'avalanche-2', sym: 'AVAXUSD' }
+              'BTCUSDT': 'BTCUSD',
+              'ETHUSDT': 'ETHUSD',
+              'BNBUSDT': 'BNBUSD',
+              'XRPUSDT': 'XRPUSD',
+              'SOLUSDT': 'SOLUSD',
+              'ADAUSDT': 'ADAUSD',
+              'DOTUSDT': 'DOTUSD',
+              'MATICUSDT': 'MATICUSD',
+              'LINKUSDT': 'LINKUSD',
+              'AVAXUSDT': 'AVAXUSD'
             };
 
             binanceData.forEach((item: any) => {
-              const mapping = symbolMap[item.symbol];
-              if (mapping) {
+              const sym = symbolMap[item.symbol];
+              if (sym) {
                 const price = parseFloat(item.lastPrice);
                 const change = parseFloat(item.priceChangePercent);
-                mappedData[mapping.id] = { usd: price, usd_24h_change: change };
-                updates.push({ symbol: mapping.sym, price, change, timestamp: now });
-                latestPrices[mapping.sym] = price;
+                mappedData[sym] = { usd: price, usd_24h_change: change };
+                updates.push({ symbol: sym, price, change, timestamp: now });
+                latestPrices[sym] = price;
               }
             });
 

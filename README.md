@@ -2,6 +2,7 @@
 
 A professional-grade, real-time financial market terminal built with React, Express, and WebSockets. Designed for high-performance market monitoring across Forex, Metals, Indices, Crypto, and Commodities.
 
+![Terminal Preview](https://picsum.photos/seed/trading/1200/600)
 
 ## 🚀 Features
 
@@ -14,7 +15,7 @@ A professional-grade, real-time financial market terminal built with React, Expr
 - **Interactive Charts**: High-performance TradingView charts for every asset.
 - **Economic Calendar**: Real-time tracking of high-impact news events.
 - **Responsive Design**: Optimized for both desktop and mobile trading environments.
-- **Robust Data Pipeline**: Multi-source API integration with automatic failover (OANDA, Binance, Frankfurter, CoinGecko).
+- **Robust Data Pipeline**: Multi-source API integration with automatic failover (OANDA, Binance, ExchangeRate-API).
 
 ## 🛠️ Tech Stack
 
@@ -23,8 +24,8 @@ A professional-grade, real-time financial market terminal built with React, Expr
 - **Build Tool**: Vite.
 - **State Management**: React Hooks (Context API).
 - **API Integration**:
-  - **Forex/Metals/Indices**: OANDA v20 API (Primary), Frankfurter (Fallback).
-  - **Crypto**: Binance API (Primary), CoinGecko (Fallback).
+  - **Forex/Metals/Indices**: OANDA v20 API (Primary), ExchangeRate-API (Fallback).
+  - **Crypto**: Binance API (Primary), Binance Public API (Fallback).
 - **Charts**: TradingView Lightweight Charts & Widgets.
 
 ## 🏗️ Architecture
@@ -80,13 +81,13 @@ The following environment variables are required for full functionality:
 | `OANDA_ACCOUNT_ID` | Your OANDA v20 Account ID. |
 | `BINANCE_API_KEY` | Your Binance API Key (optional, for higher rate limits). |
 
-*Note: The application will automatically fall back to public APIs (Frankfurter/CoinGecko) if these keys are not provided.*
+*Note: The application will automatically fall back to public APIs (ExchangeRate-API/Binance Public) if these keys are not provided.*
 
 ## 📈 API Integration Details
 
 - **Forex/Indices/Metals**: Primary data is sourced from OANDA's institutional-grade pricing engine.
 - **Crypto**: Real-time ticker data is pulled from Binance's 24hr ticker endpoint.
-- **Fallback**: In case of primary API failure, the system seamlessly switches to Frankfurter for FX and CoinGecko for Crypto to ensure zero downtime.
+- **Fallback**: In case of primary API failure, the system seamlessly switches to ExchangeRate-API for FX and Binance Public API for Crypto to ensure zero downtime.
 
 ## 📄 License
 
