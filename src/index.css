@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #020617; /* Deeper slate for a more professional look */
+  --color-card: #0f172a;
+  --color-accent: #10b981; /* Emerald-500 for bullish */
+  --color-bearish: #f43f5e; /* Rose-500 for bearish */
+  --color-border: rgba(255, 255, 255, 0.05);
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Anton', sans-serif;
+  --font-technical: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html, body {
+    background-color: var(--color-bg) !important;
+    color: var(--color-text-primary);
+    @apply text-sm;
+  }
+  
+  body {
+    @apply font-sans antialiased selection:bg-accent selection:text-white;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes antigravity {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+.animate-antigravity {
+  animation: antigravity 8s ease-in-out infinite;
+}
+
+@layer utilities {
+  .terminal-glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border shadow-2xl;
+  }
+  
+  .text-glow-bullish {
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  }
+
+  .text-glow-bearish {
+    text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+  }
+
+  .grid-bg {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .pause {
+    animation-play-state: paused;
+  }
+
+  /* Technical Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
