@@ -2,7 +2,6 @@
 
 A professional-grade, real-time financial market terminal built with React, Express, and WebSockets. Designed for high-performance market monitoring across Forex, Metals, Indices, Crypto, and Commodities.
 
-![Terminal Preview](https://picsum.photos/seed/trading/1200/600)
 
 ## 🚀 Features
 
