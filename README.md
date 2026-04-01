@@ -12,7 +12,7 @@ A professional-grade, real-time financial market terminal designed for high-perf
 - **Real-Time Market Data**: Live price updates via WebSockets for low-latency monitoring.
 - **Multi-Asset Support**: Comprehensive coverage of Forex Majors, Crosses, Metals (Gold, Silver, Platinum, Palladium), Global Indices, Cryptocurrencies, and Commodities.
 - **Advanced Market Analysis**:
-  - **DXY & Currency Indexes**: Real-time calculation of the US Dollar Index and other major currency strength indexes.
+  - **Currency Indexes**: Real-time calculation of currency strength indexes for better utilization.
   - **Trading Sessions**: Visual tracking of Sydney, Tokyo, London, and New York sessions.
 
 - **Interactive Charts**: High-performance charts for every asset.
