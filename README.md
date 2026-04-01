@@ -14,11 +14,11 @@ A professional-grade, real-time financial market terminal designed for high-perf
 - **Advanced Market Analysis**:
   - **DXY & Currency Indexes**: Real-time calculation of the US Dollar Index and other major currency strength indexes.
   - **Trading Sessions**: Visual tracking of Sydney, Tokyo, London, and New York sessions.
-  - **Killzones & Silver Bullets**: Integrated ICT (Inner Circle Trader) concepts for institutional timing.
+
 - **Interactive Charts**: High-performance TradingView charts for every asset.
 - **Economic Calendar**: Real-time tracking of high-impact news events.
 - **Responsive Design**: Optimized for both desktop and mobile trading environments.
-- **Robust Data Pipeline**: Multi-source API integration with automatic failover (OANDA, Binance, ExchangeRate-API).
+- **Robust Data Pipeline**: Multi-source API integration with automatic failover
 
 ## 🚀 **CORE TRADING FEATURES**
 
