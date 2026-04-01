@@ -34,21 +34,22 @@ A professional-grade, real-time financial market terminal designed for high-perf
 
 ## 📊 **ANALYSIS SUITE**
 ## 🎯 **SIGNAL GENERATION SYSTEM**
+---
 
 ## 🔍 **ADVANCED FEATURES**
-
 ### **Multi-Pair Screener**
 - Scan all Forex pairs (19 pairs)
 - Scan all Crypto (10 pairs)
 - Scan all Indices (9 pairs)
 - Scan ALL markets (60+ pairs)
-
+---
 ### **Economic Calendar**
 ### **Correlation Matrix** 
-### 20. **Performance Analytics** 
-### 21. **Market Heatmap** 
-### 22. **Live News Feed** 
-### 23. **Alerts Manager** 
+### **Performance Analytics** 
+### **Market Heatmap** 
+### **Live News Feed** 
+### ##Alerts Manager** 
+---
 ## 📱 **TELEGRAM INTEGRATION for MOBILE NOTIFICATION**
 ## 📒 **TRADE JOURNAL**
 ## 🤖 **AI CHART ANALYSIS**
