@@ -20,77 +20,39 @@ A professional-grade, real-time financial market terminal designed for high-perf
 - **Responsive Design**: Optimized for both desktop and mobile trading environments.
 - **Robust Data Pipeline**: Multi-source API integration with automatic failover (OANDA, Binance, ExchangeRate-API).
 
-## 🛠️ Tech Stack
+## 🚀 **CORE TRADING FEATURES**
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS, Lucide Icons, Framer Motion.
-- **Backend**: Node.js, Express, WebSocket (ws).
-- **Build Tool**: Vite.
-- **State Management**: React Hooks (Context API).
-- **API Integration**:
-  - **Forex/Metals/Indices**: OANDA v20 API (Primary), ExchangeRate-API (Fallback).
-  - **Crypto**: Binance API (Primary), Binance Public API (Fallback).
-- **Charts**: TradingView Lightweight Charts & Widgets.
+### 1. **Multi-Asset Coverage (60+ Instruments)**
+- **Forex Majors (7):** EUR/USD, GBP/USD, USD/JPY, USD/CHF, AUD/USD, USD/CAD, NZD/USD
+- **Forex Crosses (12):** EUR/JPY, GBP/JPY, EUR/GBP, EUR/AUD, EUR/CHF, GBP/CHF, GBP/AUD, AUD/JPY, CHF/JPY, CAD/JPY, AUD/NZD, NZD/JPY
+- **Precious Metals (4):** Gold (XAU/USD), Silver (XAG/USD), Platinum (XPT/USD), Palladium (XPD/USD)
+- **Indices (9):** US30, NAS100, SPX500, UK100, GER40, FRA40, JPN225, AUS200, HK50
+- **Cryptocurrencies (10):** BTC, ETH, BNB, XRP, SOL, ADA, DOT, MATIC, LINK, AVAX
+- **Commodities (3):** US Oil (WTI), UK Oil (Brent), Natural Gas
 
-## 🏗️ Architecture
+---
 
-The application follows a modern full-stack architecture:
+## 📊 **ANALYSIS SUITE**
+## 🎯 **SIGNAL GENERATION SYSTEM**
 
-1.  **Server (`server.ts`)**:
-    -   Acts as a proxy to external financial APIs to hide sensitive keys and bypass CORS.
-    -   Implements a caching layer to optimize API usage and prevent rate limiting.
-    -   Manages a WebSocket server for broadcasting real-time price fluctuations to all connected clients.
-2.  **Frontend Services (`src/services/`)**:
-    -   `priceService.ts`: Handles initial data fetching and WebSocket connection management.
-    -   `newsService.ts`: Fetches and processes economic calendar events.
-3.  **UI Components (`src/components/`)**:
-    -   Modularized components for the Asset List, Chart View, Session Tracker, and News Feed.
-    -   Responsive layout using CSS Grid and Flexbox.
+## 🔍 **ADVANCED FEATURES**
 
-## ⚙️ Setup & Installation
+### **Multi-Pair Screener**
+- Scan all Forex pairs (19 pairs)
+- Scan all Crypto (10 pairs)
+- Scan all Indices (9 pairs)
+- Scan ALL markets (60+ pairs)
 
-### Prerequisites
+### **Economic Calendar**
+### **Correlation Matrix** 
+### 20. **Performance Analytics** 
+### 21. **Market Heatmap** 
+### 22. **Live News Feed** 
+### 23. **Alerts Manager** 
+## 📱 **TELEGRAM INTEGRATION for MOBILE NOTIFICATION**
+## 📒 **TRADE JOURNAL**
+## 🤖 **AI CHART ANALYSIS**
 
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/your-repo/a3-elite-terminal.git
-    cd a3-elite-terminal
-    ```
-
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-
-3.  Configure environment variables:
-    Create a `.env` file in the root directory based on `.env.example`.
-
-4.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-
-## 🔑 Environment Variables
-
-The following environment variables are required for full functionality:
-
-| Variable | Description |
-| :--- | :--- |
-| `OANDA_API_KEY` | Your OANDA v20 API Personal Access Token. |
-| `OANDA_ACCOUNT_ID` | Your OANDA v20 Account ID. |
-| `BINANCE_API_KEY` | Your Binance API Key (optional, for higher rate limits). |
-
-*Note: The application will automatically fall back to public APIs (ExchangeRate-API/Binance Public) if these keys are not provided.*
-
-## 📈 API Integration Details
-
-- **Forex/Indices/Metals**: Primary data is sourced from OANDA's institutional-grade pricing engine.
-- **Crypto**: Real-time ticker data is pulled from Binance's 24hr ticker endpoint.
-- **Fallback**: In case of primary API failure, the system seamlessly switches to ExchangeRate-API for FX and Binance Public API for Crypto to ensure zero downtime.
 
 ## 📄 License
 
