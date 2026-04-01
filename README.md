@@ -5,9 +5,6 @@
 [![Instagram](https://img.shields.io/badge/Instagram-%40mrhenderson.251-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/mrhenderson.251)
 [![Telegram](https://img.shields.io/badge/Telegram-%40a3en3-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/a3en3)
 
-**Instagram:** [@mrhenderson.251](https://www.instagram.com/mrhenderson.251)  
-**Telegram:** [@a3en3](https://t.me/a3en3)
-
 A professional-grade, real-time financial market terminal built with React, Express, and WebSockets. Designed for high-performance market monitoring across Forex, Metals, Indices, Crypto, and Commodities.
 
 ## 🚀 Features
