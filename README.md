@@ -15,7 +15,7 @@ A professional-grade, real-time financial market terminal designed for high-perf
   - **DXY & Currency Indexes**: Real-time calculation of the US Dollar Index and other major currency strength indexes.
   - **Trading Sessions**: Visual tracking of Sydney, Tokyo, London, and New York sessions.
 
-- **Interactive Charts**: High-performance TradingView charts for every asset.
+- **Interactive Charts**: High-performance charts for every asset.
 - **Economic Calendar**: Real-time tracking of high-impact news events.
 - **Responsive Design**: Optimized for both desktop and mobile trading environments.
 - **Robust Data Pipeline**: Multi-source API integration with automatic failover
@@ -37,28 +37,20 @@ A professional-grade, real-time financial market terminal designed for high-perf
 ---
 
 ## 🔍 **ADVANCED FEATURES**
-### **Multi-Pair Screener**
+### -> **Multi-Pair Screener**
 - Scan all Forex pairs (19 pairs)
 - Scan all Crypto (10 pairs)
 - Scan all Indices (9 pairs)
 - Scan ALL markets (60+ pairs)
----
-### **Economic Calendar**
-### **Correlation Matrix** 
-### **Performance Analytics** 
-### **Market Heatmap** 
-### **Live News Feed** 
-### **Alerts Manager** 
----
-## 📱 **TELEGRAM INTEGRATION for MOBILE NOTIFICATION**
-## 📒 **TRADE JOURNAL**
-## 🤖 **AI CHART ANALYSIS**
 
+-> ### **Economic Calendar**
+-> ### **Correlation Matrix** 
+-> ### **Performance Analytics** 
+-> ### **Market Heatmap** 
+-> ### **Live News Feed** 
+-> ### **Alerts Manager** 
+-> ## 📱 **TELEGRAM INTEGRATION for MOBILE NOTIFICATION**
+-> ## 📒 **TRADE JOURNAL**
+-> ## 🤖 **AI CHART ANALYSIS**
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Built with ❤️ for the trading community.
+Built by A3EN with ❤️ for the trading community.
