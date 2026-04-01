@@ -48,7 +48,7 @@ A professional-grade, real-time financial market terminal designed for high-perf
 ### **Performance Analytics** 
 ### **Market Heatmap** 
 ### **Live News Feed** 
-### ##Alerts Manager** 
+### **Alerts Manager** 
 ---
 ## 📱 **TELEGRAM INTEGRATION for MOBILE NOTIFICATION**
 ## 📒 **TRADE JOURNAL**
